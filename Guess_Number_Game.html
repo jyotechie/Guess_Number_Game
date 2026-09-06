@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<body style="
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial, sans-serif;
+">
+
+    <div style="
+        background: white;
+        padding: 40px;
+        width: 320px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    ">
+
+        <h2 style="
+            color: #4a3aff;
+            margin-bottom: 10px;
+        ">
+             Guess the Number
+        </h2>
+
+        <p style="
+            color: #666;
+            font-size: 16px;
+        ">
+            Guess a number between 1 and 10
+        </p>
+
+        <input 
+            type="number" 
+            id="guess" 
+            min="1" 
+            max="10"
+            placeholder="Enter your guess"
+            style="
+                width: 80%;
+                padding: 12px;
+                border: 2px solid #ddd;
+                border-radius: 10px;
+                font-size: 16px;
+                text-align: center;
+                outline: none;
+            "
+        >
+
+        <br><br>
+
+        <button 
+            onclick="check()"
+            style="
+                padding: 12px 30px;
+                background: #4a3aff;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+            "
+        >
+             GUESS
+        </button>
+
+        <p id="result" style="
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        ">
+        </p>
+
+    </div>
+
+    <script>
+        let secret = Math.floor(Math.random() * 10) + 1;
+
+        function check() {
+            let g = document.getElementById("guess").value;
+
+            if (g == secret)
+                document.getElementById("result").innerText = "Correct!";
+            else if (g > secret)
+                document.getElementById("result").innerText = "Too High!";
+            else
+                document.getElementById("result").innerText = "Too Low!";
+        }
+    </script>
+
+</body>
+</html>
